@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-if __name__ == '__main__':
-    import sys
+import sys
 
 
 def args():
@@ -12,3 +11,5 @@ def args():
         print("{} arguments:".format(len(sys.argv) - 1))
     for i in range(1, len(sys.argv)):
         print("{}: {}".format(i, sys.argv[i]))
+if __name__ == '__main__':
+    args()
