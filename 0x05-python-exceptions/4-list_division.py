@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 def list_division1(my_list_1, my_list_2, list_length):
     new_list = []
-    result = 0
     for i in range(list_length):
+        result = 0
         try:
             result = my_list_1[i] / my_list_2[i]
         except ZeroDivisionError:
