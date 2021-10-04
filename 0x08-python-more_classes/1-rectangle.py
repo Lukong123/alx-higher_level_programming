@@ -3,8 +3,15 @@
 
 
 class Rectangle:
-    """an empty rectangle class"""
-
+    """a rectangle class:
+       Args:
+           width: width of a rectangle of type int
+           height: height of a rectangle of type int
+       Raises:
+           TypeError: type of both width and height must be int
+           ValueError: width and height must be >=0
+    """
+    
     def __init__(self, width=0, height=0):
         """ Initializing the Rectangle class with width and height"""
 
