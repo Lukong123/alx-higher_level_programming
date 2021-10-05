@@ -1,50 +1,55 @@
 #!/usr/bin/python3
-'''Module for N Queens problem.'''
+"""
+nqueens backtracking program to print the coordinates of n queens
+"""
 
 
-def isSafe(board, row, col):
-    '''Checks if position is safe from attack.
-    Args:
-        board: The board state.
-        row: The row to check.
-        col: The colum to check.
-    '''
-    for c in range(col):
-        if board[c] is row or abs(board[c] - row) is abs(c - col):
-            return False
-    return True
-
-
-def checkBoard(board, col):
-    '''Checks the board state column by column using backtracking.
-    Args:
-        board: The board state.
-        col: The current colum to check.
-    '''
-    n = len(board)
-    if col is n:
-        print(str([[c, board[c]] for c in range(n)]))
-        return
-
-    for row in range(n):
-        if isSafe(board, row, col):
-            board[col] = row
-            checkBoard(board, col + 1)
+from sys import argv
 
 if __name__ == "__main__":
-    import sys
-
-    if len(sys.argv) != 2:
+    a = []
+    if len(argv) != 2:
         print("Usage: nqueens N")
-        sys.exit(1)
-    n = 0
-    try:
-        n = int(sys.argv[1])
-    except:
+        exit(1)
+    if argv[1].isdigit() is False:
         print("N must be a number")
-        sys.exit(1)
+        exit(1)
+    n = int(argv[1])
     if n < 4:
         print("N must be at least 4")
-        sys.exit(1)
-    board = [0 for col in range(n)]
-    checkBoard(board, 0)
+        exit(1)
+
+    for i in range(n):
+        a.append([i, None])
+
+    def already_exists(y):
+        for x in range(n):
+            if y == a[x][1]:
+                return True
+        return False
+
+    def reject(x, y):
+        if (already_exists(y)):
+            return False
+        i = 0
+        while(i < x):
+            if abs(a[i][1] - y) == abs(i - x):
+                return False
+            i += 1
+        return True
+
+    def clear_a(x):
+        for i in range(x, n):
+            a[i][1] = None
+
+    def nqueens(x):
+        for y in range(n):
+            clear_a(x)
+            if reject(x, y):
+                a[x][1] = y
+                if (x == n - 1):
+                    print(a)
+                else:
+                    nqueens(x + 1)
+
+    nqueens(0)
