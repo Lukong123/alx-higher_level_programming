@@ -1,0 +1,29 @@
+# doctest_1-my_list.py
+""" doctest class """
+
+>>> MyList = __import__('1-my_list').MyList
+
+>>> my_list = MyList([4, 8, 7, 5, 6])
+>>> print(my_list)
+[4, 8, 7, 5, 6]
+>>> my_list.print_sorted()
+[4, 5, 6, 7, 8]
+
+>>> my_list = MyList([1, -1, 0, 7, 4])
+>>> print(my_list)
+[1, -1, 0, 7, 4]
+>>> my_list.print_sorted()
+[-1, 0, 1, 4, 7]
+
+>>> my_list = MyList()
+>>> my_list.append(8)
+>>> my_list.append(4)
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+[1, 4, 8]
+
+>>> my_list = MyList([4, "list", 7, 5, 6])
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: unorderable types: str() < int()
