@@ -2,7 +2,6 @@
 """
 A module creates an object from a json file
 """
-class_to_json = __import__('8-my_class_to_json').class_to_json
 
 
 class Student:
