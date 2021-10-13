@@ -8,4 +8,4 @@ def read_file(filename=""):
     """ a function to read file as UT8 text file"""
     with open(filename, 'r') as f:
         read_data = f.read()
-        return read_data
+        print(read_data, end="")
