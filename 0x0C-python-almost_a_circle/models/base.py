@@ -1,24 +1,23 @@
 #!/usr/bin/python3
-"""
-A module for principal base class
-"""
-from json import dumps,loads
+'''Module for Base class.'''
+from json import dumps, loads
 import csv
 
 
 class Base:
-    """ defining the Base class"""
+    '''A representation of the base of our OOP hierarchy.'''
+
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """ Base class comstructor"""
+        '''Constructor.'''
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    @staticmethod  
+    @staticmethod
     def to_json_string(list_dictionaries):
         '''Jsonifies a dictionary so it's quite rightly and longer.'''
         if list_dictionaries is None or not list_dictionaries:
