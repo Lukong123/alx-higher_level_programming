@@ -91,17 +91,23 @@ class Rectangle(Base):
             format(type(self).__name__, self.id, self.x, self.y, self.width,
                    self.height)
 
-    def update(self, *arg)
-    """function assigns arguments to each attributes"""
-        if args:
-            keys = ["id", "width", "height", "x", "y"]
-            for  k, v in zip(keys, args):
-                setattr(self, k, v)
-            else:
-                keys = ["id", "width", "height", "x", "y"]
-                if kwargs is not None:
-                    for k, v in kwargs.items():
-                        if k in keys:
-                            setattr(self, k, v)
+    def __update(self, id=None, width=None, height=None, x=None, y=None):
+        '''Internal method that updates instance attributes via */**args.'''
+        if id is not None:
+            self.id = id
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
 
-    
+    def update(self, *args, **kwargs):
+        '''Updates instance attributes via no-keyword & keyword args.'''
+        # print(args, kwargs)
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
