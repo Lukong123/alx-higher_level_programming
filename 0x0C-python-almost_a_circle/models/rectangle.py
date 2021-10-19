@@ -10,7 +10,6 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
-        """ Constructor for rectangle """
         self.width = width
         self.height = height
         self.x = x
@@ -76,3 +75,6 @@ class Rectangle(Base):
         else:
             self.__y = value
 
+    def area(self):
+        """ :returns area value of Rectangle instance"""
+        return self.__width * self.__height
