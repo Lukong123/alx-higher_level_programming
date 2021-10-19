@@ -80,7 +80,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        '''Prints string representation of this rectangle.'''
+        '''Prints to stdout string representation of this rectangle.'''
         s = '\n' * self.y + \
             (' ' * self.x + '#' * self.width + '\n') * self.height
         print(s, end='')
@@ -90,3 +90,18 @@ class Rectangle(Base):
         return '[{}] ({}) {}/{} - {}/{}'.\
             format(type(self).__name__, self.id, self.x, self.y, self.width,
                    self.height)
+
+    def update(self, *arg)
+    """function assigns arguments to each attributes"""
+        if args:
+            keys = ["id", "width", "height", "x", "y"]
+            for  k, v in zip(keys, args):
+                setattr(self, k, v)
+            else:
+                keys = ["id", "width", "height", "x", "y"]
+                if kwargs is not None:
+                    for k, v in kwargs.items():
+                        if k in keys:
+                            setattr(self, k, v)
+
+    
