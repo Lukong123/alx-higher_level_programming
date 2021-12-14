@@ -1,4 +1,8 @@
 #!/usr/bin/node
-const num = Number.parseInt(process.argv[2]);
-
-console.log(Number.isNaN(num) ? 'Not a number' : 'My number: ' + num);
+/* converting to interger */
+const myNum = Number.parseInt (process.argv[2], 10);
+if (isNaN(myNum)) {
+    console.log('Not a number');
+} else {
+    console.log ( `My number: ${myNum}`);
+}
