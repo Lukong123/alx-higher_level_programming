@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """ Listing states in database"""
 import sys
 import MySQLdb
