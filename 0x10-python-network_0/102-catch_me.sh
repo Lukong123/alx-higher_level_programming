@@ -1,4 +1,4 @@
 
 #!/bin/bash
 # makes a request to 0.0.0.0:5000/catch_me that causes the server to respond with a message containing You got me!
-curl -s "0.0.0.0:5000/catch_me" -LX PUT -H "Origin: HolbertonSchool" -d "user_id=98"
+curl -s "0.0.0.0:5000/catch_me" -LX PUT -H "Origin: You got me!" -d "user_id=98"
